@@ -10,12 +10,11 @@ export function ProjectDetailPage(){
     const {id} = useParams();
     const [project, setProject] = useState(null);
     const {theme} = useContext(ThemeContext);
-    
 
     useEffect(() => {
         const foundCountry = data.filter((country) => country.alpha2Code === id);
         setProject(foundCountry[0]);
-    }, []);
+    }, [id]);
 
     return(
         <div className={theme === 'light' ? "min-vh-100" : "container-dark min-vh-100 text-white" }>

@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router} from 'react-router-dom';
 import { ThemeProviderWrapper } from './context/theme.context';
+import { SearchProviderWrapper } from './context/search.context';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,7 +13,9 @@ root.render(
   <React.StrictMode>
    <Router>
    <ThemeProviderWrapper>
+   <SearchProviderWrapper>
     <App />
+    </SearchProviderWrapper>
     </ThemeProviderWrapper>
     </Router>
   </React.StrictMode>

@@ -17,15 +17,15 @@ export function CountryDetails({project}){
             <div className="py-4">
             <Link to="/"><button className={theme === 'light' ? "btn-back" : "btn-back-dark"}><FontAwesomeIcon icon={faArrowLeft} className='fs-5 me-1' /> Back </button></Link> 
             </div>
-            <div className="d-flex gap-5 mt-5">
+            <div className="d-flex flex-column flex-lg-row">
                 <div className="me-5">
                     <img className="flag-image" src={flags.png}  alt={`${name} flag`} />
                 </div>
                 <div>
-                <div className="row">
+                <div className="">
                     <h1 className="fw-bold">{name}</h1>
                     </div>
-                    <div className="d-flex gap-5">
+                    <div className="d-flex gap-5 flex-column flex-lg-row">
                     <div className="me-5">
                     <p className="fw-bold fs-5">Native Name: <span className="fw-normal">{nativeName}</span> </p>
                     <p className="fw-bold fs-5">Population <span className="fw-normal">{population}</span> </p>
@@ -51,15 +51,15 @@ export function CountryDetails({project}){
                     </span> </p>
                     </div>    
                     </div>
-                    <div className=" my-5 d-flex gap-3 ">
+                    <div className=" my-5 d-flex gap-3 d-flex flex-column flex-lg-row ">
                         <p className="fw-bold fs-5">Border Countries: </p>
                         {borders && <div className="d-flex gap-3 border-container">
                             {borders.map((border) => {
-                                const {name} = data.find((item) => item.alpha3Code === border)
+                                const {name, alpha2Code} = data.find((item) => item.alpha3Code === border)
                                 return(
-                                    <div className={theme === 'light' ? "border-card" : "border-card-dark"} key={nanoid()}>
+                                    <Link to={`/${alpha2Code}`} className={theme === 'light' ? "border-card text-decoration-none" : "border-card-dark text-decoration-none"} key={nanoid()}>
                                     {name && <p>{name}</p>  }
-                                    </div>
+                                    </Link>
                                 );
                             })}
                         </div>}
