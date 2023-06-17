@@ -2,6 +2,7 @@
   padding:0;
   margin:0;
   box-sizing: border-box;
+  font-family: 'Nunito Sans';
   /* border:1px solid red; */
 }
 
@@ -72,5 +73,42 @@
 .btn-white{
   padding: 0.3rem 1.5rem;
   background-color: transparent;
+}
 
+.border-card{
+  padding: 0rem 1.4rem;
+  border: 1px solid rgb(231, 224, 224);
+  border-radius: 0.3rem;
+}
+
+.border-card-dark{
+  padding: 0rem 1.4rem;
+  border: 1px solid #2b3844;
+  background-color: #2b3844;
+  border-radius: 0.3rem;
+}
+
+.border-container{
+  max-width:350px !important;
+  flex-wrap: wrap;
+  overflow: visible;
+}
+
+.btn-back{
+  padding: 0.5rem 2.3rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-shadow: -1px 0px 13px -4px rgba(0,0,0,0.75);
+  border: 0;
+  font-size: 1.2rem;
+}
+
+.btn-back-dark{
+  padding: 0.5rem 2.3rem;
+  border-radius: 0.5rem;
+  background-color: #2b3844;
+  color:white;
+  box-shadow: -1px 0px 13px -4px rgba(0,0,0,0.75);
+  border: 0;
+  font-size: 1.2rem;
 }

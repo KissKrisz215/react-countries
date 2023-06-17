@@ -16,7 +16,7 @@ export function HomePage(){
         <SearchBar />
         <div className="container grid-container py-5">
         {data.map((country) => (
-            <CountryCard country={country} />
+            <CountryCard key={country.numericCode} country={country} />
         ))}
         </div>
         </div>

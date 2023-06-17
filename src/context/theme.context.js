@@ -4,7 +4,7 @@ const ThemeContext = React.createContext();
 
 function ThemeProviderWrapper({children}){
     const [theme, setTheme] = useState('light');
-    console.log(theme);
+    
     const switchTheme = () => {
         if(theme === 'light'){
             setTheme('dark');

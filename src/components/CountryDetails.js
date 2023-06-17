@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
-
+import data from '../data/data.json'
+import { nanoid } from "nanoid";
+import { useContext } from "react";
+import { ThemeContext } from "../context/theme.context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 export function CountryDetails({project}){
-    const {flags,name, population, region, subregion, capital, topLevelDomain, currencies, languages, nativeName } = project;
+    const {flags,name, population, region, subregion, capital, topLevelDomain, currencies, languages, nativeName, borders } = project;
+    const {theme} = useContext(ThemeContext);
 
-    console.log(project)
 
     return(
 
         <div className="container py-5">
             <div className="py-4">
-            <Link to="/"><button className="btn-white">Back</button></Link> 
+            <Link to="/"><button className={theme === 'light' ? "btn-back" : "btn-back-dark"}><FontAwesomeIcon icon={faArrowLeft} className='fs-5 me-1' /> Back </button></Link> 
             </div>
             <div className="d-flex gap-5 mt-5">
                 <div className="me-5">
@@ -38,13 +43,26 @@ export function CountryDetails({project}){
                     <p className="fw-bold fs-5">Languages: <span className="d-flex gap-1 fw-normal">
                     {languages.map((languages,index) => {
                         if(index === 0){
-                            return <p>{languages.name}</p>
+                            return <p key={nanoid()}>{languages.name}</p>
                         }else{
-                            return <p>,{languages.name}</p>
+                            return <p key={nanoid()}>,{languages.name}</p>
                         }
                     })}
                     </span> </p>
                     </div>    
+                    </div>
+                    <div className=" my-5 d-flex gap-3 ">
+                        <p className="fw-bold fs-5">Border Countries: </p>
+                        {borders && <div className="d-flex gap-3 border-container">
+                            {borders.map((border) => {
+                                const {name} = data.find((item) => item.alpha3Code === border)
+                                return(
+                                    <div className={theme === 'light' ? "border-card" : "border-card-dark"} key={nanoid()}>
+                                    {name && <p>{name}</p>  }
+                                    </div>
+                                );
+                            })}
+                        </div>}
                     </div>
                 </div>
             </div>
