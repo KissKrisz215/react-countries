@@ -14,7 +14,7 @@ export function SearchBar(){
             </div>
             <div>
             <select onChange={handleFilter} className={theme === 'light' ? "form-select" : "form-select input-dark text-white"} aria-label="Default select example">
-            <option selected>Filter by Region</option>
+            <option value="none" onChange={handleFilter} selected>Filter by Region</option>
                 <option value="Africa">Africa</option>
                 <option value="America">America</option>
                 <option value="Asia">Asia</option>
